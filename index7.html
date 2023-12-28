@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.jpg" >
+    <title>Описание машины</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(background.jpg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #ada7a7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #000000;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .car-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .image-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.thumbnail {
+    width: 100px;  /* Установите желаемую ширину */
+    height: auto;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Описание машины: Porsche 911 Turbo</h1>
+        <img src="porshe.jpg" alt="Honda Civic" class="car-image">
+        <p>Новый 911 Turbo S — это воплощение стиля и скорости! Он сосредоточил в себе многолетние наработки компании и передовые технологии, но при этом сохранил традиционные для Porsche черты. Спорткар стал еще быстрее, маневреннее и комфортнее!</p>
+        <h4>Динамика и управляемость машины</h4>
+        Porsche 911 Turbo S ускоряется до 100 км/ч за всего 2,7 секунды. С его электронно ограниченной максимальной скоростью в 330 км/ч это становится впечатляющим достижением. За этими впечатляющими показателями стоит 6-цилиндровый битурбированный агрегат мощностью 650 л.с., работающий в паре с 8-ступенчатой автоматической коробкой передач PDK.
+
+Использование оппозитного двигателя позволило снизить центр тяжести автомобиля, а увеличенная ширина корпуса на 45 мм способствовала улучшению устойчивости. Вместе с новой эстетикой кузова, активным передним спойлером и передовыми электронными системами, эти изменения сделали Porsche еще более маневренным.
+<h4>Дизайн</h4>
+<p>Каждая деталь в дизайне Porsche 911 Turbo S претерпела изменения, сохраняя при этом узнаваемость марки. Передние крылья традиционно выступают над капотом, а на задней части кузова расположены масштабные воздухозаборники, напоминающие жабры, предоставляющие охлаждение для размещенного там двигателя. Эти детали ссылаются на стиль предыдущих моделей Porsche 911 Turbo.</p>
+
+<p>Тем не менее, ближе коснувшись каркаса, можно заметить передовые технологии, которые делают новый 911 уникальным по сравнению с прошлыми версиями. Особенности включают в себя четырехточечные LED-фары, элегантный задний световой контур, динамичный передний спойлер и массивный задний бампер с улучшенной аэродинамикой.</p>
+<img src="porshe2.jpg" alt="Honda Civic" class="car-image">
+
+<p>Внутренний мир Porsche 911 Turbo S скрыт от глаз, предлагая комфорт и роскошь наивысшего класса. Салон впечатляет своим качеством отделки, выбором материалов и современными цифровыми решениями. Предлагается выбор из трех типов передних сидений, декоративная светодиодная подсветка и передовая мультимедийная система с большим сенсорным экраном в 10,9 дюймов. Не упустите шанс протестировать новое чудо автомобильного мира на собственном опыте!</p>
+    </div>
+
+    <div class="image-row">
+        <img src="porshe.jpg" alt="Description 1" class="thumbnail" onclick="openModal('path_to_porshe.jpg', 'Description 1')">
+        <img src="porshe.jpg" alt="Description 2" class="thumbnail" onclick="openModal('path_to_porshe.jpg', 'Description 2')">
+        <!-- Добавьте другие изображения по аналогии -->
+    </div>
+    
+    <!-- Модальное окно для увеличения изображений -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    
+</body>
+<script>
+    function openModal(imagePath, description) {
+    var modal = document.getElementById('myModal');
+    var modalImage = document.getElementById('modalImage');
+    var captionText = document.getElementById('caption');
+
+    modal.style.display = "block";
+    modalImage.src = imagePath;
+    captionText.innerHTML = description;
+
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+}
+
+</script>
+</html>

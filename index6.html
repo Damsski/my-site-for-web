@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="icon.jpg" >
+<title>Обратная связь</title>
+<style>
+    body {
+        background-color: rgb(167, 161, 161);
+    }
+    #feedback-form {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #4b4949;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #feedback-form input, #feedback-form textarea, #feedback-form button {
+        background-color: #909294;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    #feedback-form button {
+        background-color: #007BFF;
+        color: rgb(255, 255, 255);
+        border: none;
+        cursor: pointer;
+    }
+    #feedback-form button:hover {
+        background-color: #0056b3;
+    }
+
+    .grup-tumbol a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 40px;
+            background: #0056b3;
+            border-radius: 10px;
+            border: 2px solid rgb(0, 0, 0);
+            font-weight: 500;
+            transition: .3s;
+            margin-right: 10px;
+        }
+    
+        .grup-tumbol a:hover {
+            color: rgb(8, 1, 1);
+            background: transparent;
+        }
+    
+
+            .button {
+                padding: 15px 5%;
+                font-size: 2vw;
+                margin: 10vh 0 20vh 0;
+            }
+       
+            footer {
+            background-color: #333;
+            color: #fff;
+            margin-top: 40px;
+            padding: 55px;
+            text-align: center;
+        }
+
+
+</style>
+</head>
+<body>
+<center>
+    <h1>Если у вас остались какие либо вопросы вы можете связаться с нами</h1>
+</center>
+<div id="feedback-form">
+    <form id="form">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Сообщение:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Отправить</button>
+    </form>
+    <div id="response" style="display: none;">Отправлено</div>
+</div>
+
+<center>
+    <div class="grup-tumbol">
+        <a href="index1.html">Вернуться</a>
+    </div>
+</center>
+
+ <footer>
+        <p>&copy; Все права защищены.</p>
+    </footer>
+
+<script>
+    document.getElementById('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        document.getElementById('form').style.display = 'none';
+        document.getElementById('response').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
